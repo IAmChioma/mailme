@@ -1,0 +1,52 @@
+
+
+{% autoescape off %}
+
+Hi {{ user }},
+{% if  stats  == resone %}
+Thank you for ordering on Bucca
+Below is the transaction detail:
+
+
+
+Food Item                        Amount               Quantity
+{% for r in order %}
+
+
+{{ r.food_name }}                     {{ r.quantity }}                         {{ r.total }}
+
+
+{% endfor %}
+
+
+
+Combo Item                       Amount               Quantity
+{% for r in combo %}
+
+
+{{ r.name }}                     {{ r.quantity }}                         {{ r.total }}
+
+
+{% endfor %}
+
+Total:                                                   {{ total }}
+
+{% elif stats  == restwo %}
+
+Your order was not successful because you had  {{ stats }} Fund.
+Please recharge your account and try again Later.
+
+{% elif stats  == resthree %}
+
+
+Your order was not successful because there is not enough stock available.
+
+{% elif stats  == restfour %}
+
+
+Your meal card has been deactivated. Please contact HR to activate your card. Thanks
+
+{% endif %}
+
+
+{% endautoescape %}

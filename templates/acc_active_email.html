@@ -1,0 +1,8 @@
+{% autoescape off %}
+Hi {{ user.username }},
+Thank you for registering on Mailme
+Please click on the link to confirm your registration,
+
+
+http://{{ domain }}/auth_api/activate/{{uid}}/{{token}}
+{% endautoescape %}
